@@ -36,7 +36,7 @@ jobs:
           pip install --force-reinstall --no-deps --no-cache-dir --no-binary pyinstaller "pyinstaller==$v"
           if ($LASTEXITCODE -ne 0) { throw "building PyInstaller's bootloader failed" }
           python -c "import PyInstaller, os; d = os.path.join(os.path.dirname(PyInstaller.__file__), 'bootloader', 'Windows-64bit-intel'); print(d, sorted(os.listdir(d)))"
-      - name: Tests (on this runner also the Explorer menu keys under a throwaway key, and drive C: read through Open Disk)
+      - name: "Tests (on this runner also the Explorer menu keys under a throwaway key, and drive C: read through Open Disk)"
         timeout-minutes: 20
         env:
           QT_QPA_PLATFORM: offscreen
